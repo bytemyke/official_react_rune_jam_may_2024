@@ -38,7 +38,7 @@ let score = 0;
       <div id="board">
         <Stage options={{ backgroundAlpha: 0 }}>
           <Game yourPlayerId={yourPlayerId} game={game} />
-          <GoodTarget scorenumber />
+          <GoodTarget x={100} y={100} score={score}/>
         </Stage>
       </div>
       <Footer playerIds={playerIds} yourPlayerId={yourPlayerId} />

@@ -1,5 +1,4 @@
 import { Sprite } from "@pixi/react";
-import React, { useRef } from "react";
 import img from "../assets/goodTarget.png";
 
 interface TargetProps {
@@ -10,17 +9,10 @@ interface TargetProps {
 }
 
 export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
-  const spriteRef = useRef<Sprite>(null);
   let score = 0;
-  const handleClick = () => {
+  const handleClick = (e: any) => {
     score += 1;
-    console.log("score += 1");
-    // if (ScoreUpdate){
-    //   ScoreUpdate(score);
-    // }
-    if (spriteRef.current) {
-      spriteRef.current.destroy();
-    }
+    e.currentTarget.destroy();
   };
 
   return (
@@ -29,8 +21,7 @@ export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
       x={100}
       y={50}
       interactive={true}
-      onpointerdown={handleClick}
-      ref={spriteRef}
+      onpointerdown={(e) => handleClick(e)}
     />
   );
 }
