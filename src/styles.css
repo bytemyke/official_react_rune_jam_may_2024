@@ -15,15 +15,19 @@ main {
   align-items: center;
   justify-content: flex-end;
 }
-
+main div#root {
+  height: 100%;
+}
 #board {
   width: 90vw;
   max-width: min(90vh, 600px);
   aspect-ratio: 1;
   overflow: hidden;
+  height: calc(85% - 2vw);
 }
 
 ul.footer {
+  height: calc(15% + 2vw);
   list-style: none;
   font-size: min(14px, 3vw);
   padding: 0;
@@ -31,8 +35,9 @@ ul.footer {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  margin-bottom: 0px;
+  margin: 0px;
   padding: 0px;
+  align-items: flex-start;
 }
 
 li {
@@ -50,8 +55,8 @@ li {
 li img {
   width: 13vw;
   height: 13vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
 }
 
 /* li[data-your-turn="true"] {
@@ -61,20 +66,9 @@ li {
   opacity: 1;
 }
 
-li:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 13vw;
-  height: 13vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
 li span {
   &:not(.score) {
-    margin-bottom: 2vw;
-    margin-top: 1vw;
+    margin-top: 0.5vw;
   }
   &.score {
     font-size: 6vw;

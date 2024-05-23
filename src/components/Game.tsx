@@ -3,6 +3,10 @@ import { BoardProps } from "../App";
 import { useEffect, useRef, useState } from "react";
 import { PlayerId } from "rune-games-sdk/multiplayer";
 import { Stage, Container, useApp, useTick, Sprite } from "@pixi/react";
+import { GoodTarget } from "../sprites/GoodTarget.tsx";
+import img from "../assets/goodTarget.png";
+import { BadTarget } from "../sprites/BadTarget.tsx";
+let score = 0;
 
 export function Game({ yourPlayerId, game }: BoardProps) {
   console.log(Texture);
@@ -13,19 +17,13 @@ export function Game({ yourPlayerId, game }: BoardProps) {
     return null;
   }
   const { playerIds } = game;
-
+  let maxWidth = app.view.width;
+  let maxHeight = app.view.height;
+  console.log(maxWidth,maxHeight);
   return (
-    <Sprite
-      interactive={true}
-      x={0}
-      y={0}
-      width={app.view.width}
-      height={app.view.height}
-      onpointerdown={(e) => {
-        console.log("clicked");
-        console.log(e);
-      }}
-      texture={Texture.EMPTY}
-    ></Sprite>
+    <>
+      <GoodTarget x={100} y={300} img={img} score={score} />
+      <BadTarget x={200} y={-50} img={img} score={score} />
+    </>
   );
 }
