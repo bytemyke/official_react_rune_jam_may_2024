@@ -1,24 +1,20 @@
 import { Sprite } from "@pixi/react";
+import { setScoreOnClick } from "../logic/setScoreOnClick";
+
 interface TargetProps {
   x: number;
   y: number;
   img: string;
-  score: number;
 }
 
-export function GoodTarget({ x, y, img, score }: TargetProps) {
-  const handleClick = (e: any) => {
-    score += 1;
-    e.currentTarget.destroy();
-  };
-
+export function GoodTarget({ x, y, img }: TargetProps) {
   return (
     <Sprite
       image={img}
       x={x}
       y={y}
-      interactive={true}
-      onpointerdown={(e) => handleClick(e)}
+      eventMode="dynamic"
+      onpointerdown={(e) => setScoreOnClick(e, 1)}
     />
   );
 }

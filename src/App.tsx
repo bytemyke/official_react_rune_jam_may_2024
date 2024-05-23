@@ -33,7 +33,7 @@ function App() {
     <>
       <div id="board">
         <Stage options={{ backgroundAlpha: 0 }}>
-          <Game yourPlayerId={yourPlayerId} game={game} />
+          <Game game={game} />
         </Stage>
       </div>
       <Footer playerIds={playerIds} yourPlayerId={yourPlayerId} />
@@ -42,7 +42,6 @@ function App() {
 }
 
 export type BoardProps = {
-  yourPlayerId?: PlayerId;
   game?: GameState;
 };
 
