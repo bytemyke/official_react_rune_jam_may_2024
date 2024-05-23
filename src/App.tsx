@@ -6,15 +6,16 @@ import shootScoreAudio from "./assets/select.wav";
 import { GameState } from "./logic.ts";
 import { Footer } from "./components/Footer.tsx";
 import { Game } from "./components/Game.tsx";
-import { GoodTarget } from "./sprites/GoodTarget.tsx"
-import img from "../assets/goodTarget.png";
+import { GoodTarget } from "./sprites/GoodTarget.tsx";
+import img from "./assets/goodTarget.png";
+import { BadTarget } from "./sprites/BadTarget.tsx";
 const shootScore = new Audio(shootScoreAudio);
 
 function App() {
   const [game, setGame] = useState<GameState>();
   const [yourPlayerId, setYourPlayerId] = useState<PlayerId | undefined>();
 
-let score = 0;
+  let score = 0;
 
   useEffect(() => {
     Rune.initClient({
@@ -38,7 +39,8 @@ let score = 0;
       <div id="board">
         <Stage options={{ backgroundAlpha: 0 }}>
           <Game yourPlayerId={yourPlayerId} game={game} />
-          <GoodTarget x={100} y={100} score={score}/>
+          <GoodTarget x={100} y={100} img={img} score={score} />
+          <BadTarget x={200} y={200} img={img} score={score} />
         </Stage>
       </div>
       <Footer playerIds={playerIds} yourPlayerId={yourPlayerId} />

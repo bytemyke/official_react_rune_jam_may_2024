@@ -1,15 +1,12 @@
 import { Sprite } from "@pixi/react";
-import img from "../assets/goodTarget.png";
-
 interface TargetProps {
   x: number;
   y: number;
+  img: string;
   score: number;
-  ScoreUpdate?: (score: number) => void;
 }
 
-export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
-  let score = 0;
+export function GoodTarget({ x, y, img, score }: TargetProps) {
   const handleClick = (e: any) => {
     score += 1;
     e.currentTarget.destroy();
@@ -18,11 +15,10 @@ export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
   return (
     <Sprite
       image={img}
-      x={100}
-      y={50}
+      x={x}
+      y={y}
       interactive={true}
       onpointerdown={(e) => handleClick(e)}
     />
   );
 }
-export default GoodTarget;
