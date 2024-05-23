@@ -5,16 +5,15 @@ import img from "../assets/goodTarget.png";
 interface TargetProps {
   x: number;
   y: number;
-  score: number;
   ScoreUpdate?: (score: number) => void;
 }
 
-export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
+export function BadTarget({ x, y, ScoreUpdate }: TargetProps) {
   const spriteRef = useRef<Sprite>(null);
   let score = 0;
   const handleClick = () => {
-    score += 1;
-    console.log("score += 1");
+    score -= 1;
+    console.log("score -= 1");
     // if (ScoreUpdate){
     //   ScoreUpdate(score);
     // }
@@ -34,4 +33,4 @@ export function GoodTarget({ x, y, ScoreUpdate }: TargetProps) {
     />
   );
 }
-export default GoodTarget;
+export default BadTarget;
