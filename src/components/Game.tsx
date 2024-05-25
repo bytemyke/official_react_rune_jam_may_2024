@@ -6,9 +6,8 @@ import { Stage, Container, useApp, useTick, Sprite } from "@pixi/react";
 import { GoodTarget } from "../sprites/GoodTarget.tsx";
 import img from "../assets/goodTarget.png";
 import { BadTarget } from "../sprites/BadTarget.tsx";
-
 export function Game({ game }: BoardProps) {
-  console.log(Texture)
+  console.log(Texture);
   const app = useApp();
   app.resizeTo = document.getElementById("board") as HTMLElement;
   if (!game) {

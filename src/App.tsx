@@ -6,9 +6,8 @@ import shootScoreAudio from "./assets/select.wav";
 import { GameState } from "./logic.ts";
 import { Footer } from "./components/Footer.tsx";
 import { Game } from "./components/Game.tsx";
-
 const shootScore = new Audio(shootScoreAudio);
-
+const gameTime = 8000;
 function App() {
   const [game, setGame] = useState<GameState>();
   const [yourPlayerId, setYourPlayerId] = useState<PlayerId | undefined>();
@@ -28,7 +27,7 @@ function App() {
   }
 
   const { playerIds } = game;
-
+  console.log(game.targetMapData);
   return (
     <>
       <div id="board">
